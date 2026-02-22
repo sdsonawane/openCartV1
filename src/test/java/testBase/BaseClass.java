@@ -1,8 +1,10 @@
 package testBase;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
@@ -34,13 +36,21 @@ public class BaseClass {
 	@BeforeClass(groups= {"Sanity","Regression","Master"})
 	@Parameters ({"os", "browser"})
 	
-	public void setup(String os, String br) throws IOException {
+	public void setup(String os, String br) {
 		
 		// Loading config.properties file
-		FileReader file = new FileReader(".//src/test/resources/config.properties");
-		
-		p = new Properties();
-		p.load(file);
+		FileReader file;
+		try {
+			file = new FileReader(".//src/test/resources/config.properties");
+			p = new Properties();
+			p.load(file);
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 		
 		logger = LogManager.getLogger(this.getClass());
 		
@@ -73,7 +83,12 @@ public class BaseClass {
 			default : System.out.println("No matching browser"); return;
 			}
 			
-			driver = new RemoteWebDriver(new URL("http://192.168.227.49:4444/wd/hub"),capabilities);
+			try {
+				driver = new RemoteWebDriver(new URL("http://192.168.227.49:4444/wd/hub"),capabilities);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		if(p.getProperty("execution_env").equalsIgnoreCase("local")){
@@ -103,25 +118,29 @@ public class BaseClass {
 	
 	@AfterClass(groups= {"Sanity","Regression","Master"})
 	public void tearDown() {
+		if(driver!=null) {
 		driver.quit();
+		}
 	}
 	
 	// Generating random first name and last name
 			public String randomString() {
-				String generatedString = RandomStringUtils.randomAlphabetic(5);
-				return generatedString;
+				return RandomStringUtils.randomAlphabetic(5);
+				
 			}
 			
 			public String randomNumber() {
-				String generatedNumber = RandomStringUtils.randomNumeric(10);
-				return generatedNumber;
+				return RandomStringUtils.randomNumeric(10);
+				
 			}
 			
 			// Generating random alphanumeric password
 			public String randomAlphaNumeric() {
-				String generatedString = RandomStringUtils.randomAlphabetic(3);
-				String generatedNumber = RandomStringUtils.randomNumeric(3);
-				return (generatedString+"@"+generatedNumber);
+				//String generatedString = RandomStringUtils.randomAlphabetic(3);
+				//String generatedNumber = RandomStringUtils.randomNumeric(3);
+				return (RandomStringUtils.randomAlphabetic(3)+"@"+RandomStringUtils.randomNumeric(3));
+				
+				
 			}
 			
 			public String captureScreen(String tname) {

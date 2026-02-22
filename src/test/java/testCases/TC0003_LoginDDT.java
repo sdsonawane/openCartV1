@@ -9,73 +9,79 @@ import pageObjects.MyAccountPage;
 import testBase.BaseClass;
 import utilities.DataProviders;
 
+public class TC0003_LoginDDT extends BaseClass {
 
-public class TC0003_LoginDDT extends BaseClass{
-	
-	@Test(dataProvider = "LoginData", dataProviderClass= DataProviders.class, groups="DataDriver") // getting dataProvider from different class
+	@Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class, groups = "DataDriver") // getting from
+																										// dataProvider
+																										// different
+																										// class
+
 	public void verify_LoginDTT(String email, String pwd, String exp) {
-		
-		logger.info("**** Starting TC_0003_LoginDDT ****");
-		
-		//HomePage
-		try {
-		HomePage hp = new HomePage(driver);
-		hp.clickMyAccount();
-		hp.clickLogin();
-		
-		//Login
-		
-		LoginPage lp = new LoginPage(driver);
-		lp.setEmail(email);
-		lp.setPassword(pwd);
-		lp.clickLogin();
-		
-		//MyAccount
-		
-		MyAccountPage macc = new MyAccountPage(driver);
-		boolean targetPage = macc.isMyAccountPageExists();
-		
 
-		/* Valid data - login success -test passed
-	 	Valid data - login failed - test failed
-	 	Invalid data - login failed - test passed
-	 	Invalid data - login passed - test failed
-	 
-	 */
-		
-		if(exp.equalsIgnoreCase("Valid")) {
-			if(targetPage==true) {
-			
-				macc.clickLogout();
-				Assert.assertTrue(true);
+		logger.info("**** Starting TC_0003_LoginDDT ****");
+
+		// HomePage
+		try {
+			HomePage hp = new HomePage(driver);
+			hp.clickMyAccount();
+			logger.info("Clicked on MyAccount link");
+			hp.clickLogin();
+			logger.info("Clicked on Login link");
+
+			// Login
+
+			LoginPage lp = new LoginPage(driver);
+			lp.setEmail(email);
+			logger.info("Entered Email");
+			lp.setPassword(pwd);
+			logger.info("Set password");
+			lp.clickLogin();
+			logger.info("Clicked on Login button");
+
+			// MyAccount
+
+			MyAccountPage macc = new MyAccountPage(driver);
+			boolean targetPage = macc.isMyAccountPageExists();
+
+			/*
+			 * Valid data - login success -test passed Valid data - login failed - test
+			 * failed Invalid data - login failed - test passed Invalid data - login passed
+			 * - test failed
+			 * 
+			 */
+
+			if (exp.equalsIgnoreCase("Valid")) {
+				if (targetPage == true) {
+
+					macc.clickLogout();
+					Assert.assertTrue(true);
+				} else {
+					Assert.assertTrue(false);
+					logger.error("Test failed...");
+					logger.debug("Debug logs... ");
+				}
 			}
-			else {
-				Assert.assertTrue(false);
+
+			if (exp.equalsIgnoreCase("Invalid")) {
+
+				if (targetPage == true) {
+					Thread.sleep(2000);
+					macc.clickLogout();
+					Assert.assertTrue(false);
+				} else {
+
+					Assert.assertTrue(true);
+					logger.error("Test failed...");
+					logger.debug("Debug logs... ");
+				}
+
 			}
-		}
-		
-		
-		if(exp.equalsIgnoreCase("Invalid")) {
-		
-			if(targetPage==true) {
-				Thread.sleep(2000);
-				macc.clickLogout();
-				Assert.assertTrue(false);
-			}
-			else {
-				
-				Assert.assertTrue(true);
-			}
-		
-		}
-		
-	}
-		catch(Exception e) {
+
+		} catch (Exception e) {
 			Assert.fail();
 		}
-		
-		
+
 		logger.info("**** Finished TC_0003_LoginDDT ****");
 	}
-	
+
 }

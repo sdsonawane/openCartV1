@@ -8,41 +8,44 @@ import pageObjects.LoginPage;
 import pageObjects.MyAccountPage;
 import testBase.BaseClass;
 
-public class TC0002_LoginTest extends BaseClass{
+public class TC0002_LoginTest extends BaseClass {
 
-	@Test(groups ={"Sanity","Master"})
+	@Test(groups = { "Sanity", "Master" })
 	public void verify_Login() {
-	
+
 		logger.info("**** Starting TC_0002_LoginTest ****");
-		
+
 		try {
-		// HomePage
-		HomePage hp = new HomePage(driver);
-		hp.clickMyAccount();
-		hp.clickLogin();
-		
-		// Login
-		
-		LoginPage lp = new LoginPage(driver);
-		lp.setEmail(p.getProperty("email"));
-		lp.setPassword(p.getProperty("password"));
-		lp.clickLogin();
-		
-		// MyAccount
-		
-		MyAccountPage macc = new MyAccountPage(driver);
-		boolean targetPage = macc.isMyAccountPageExists();
-		
-		Assert.assertTrue(targetPage);
-		//Assert.assertEquals( targetPage, true, "Login failed");
-		}
-		catch(Exception e){
-		
+			// HomePage
+			HomePage hp = new HomePage(driver);
+			hp.clickMyAccount();
+			logger.info("Clicked on My Account link");
+			hp.clickLogin();
+			logger.info("Clicked on Login link");
+
+			// Login
+
+			LoginPage lp = new LoginPage(driver);
+			lp.setEmail(p.getProperty("email"));
+			logger.info("Entered email address");
+
+			lp.setPassword(p.getProperty("password"));
+			logger.info("Entered password");
+			lp.clickLogin();
+			logger.info("Clicked on Login button");
+
+			// MyAccount
+
+			MyAccountPage macc = new MyAccountPage(driver);
+			boolean targetPage = macc.isMyAccountPageExists();
+
+			Assert.assertTrue(targetPage);
+			// Assert.assertEquals( targetPage, true, "Login failed");
+		} catch (Exception e) {
+
 			Assert.fail();
 		}
-		
-	
+
 	}
-	
 
 }

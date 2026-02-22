@@ -15,10 +15,10 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   -->
-<Configuration status = "INFO">
+<Configuration status = "WARN">
 
 <Properties>
-<Property name = "basePath">./logs</Property>Property>
+<Property name = "basePath">./logs</Property>
 </Properties>
   
   <Appenders>
@@ -33,8 +33,9 @@
     
   </Appenders>
   <Loggers>
-    <Root level="INFO"> <!--Here you can use different levels of Log levels All < Trace < Debug < Info < Warn < Error < Fatal < Off  -->
+    <Root level="TRACE"> <!--Here you can use different levels of Log levels All < Trace < Debug < Info < Warn < Error < Fatal < Off  -->
       <AppenderRef ref="File"/>
+      <AppenderRef ref="Console"/>
     </Root>
     
   </Loggers>

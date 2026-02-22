@@ -8,17 +8,18 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="8">Suite</th></tr>
-<tr><td><a href="#t0">linux-chrome</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">21,612</td><td></td><td></td></tr>
-<tr class="stripe"><td><a href="#t1">linux-edge</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">35,384</td><td></td><td></td></tr>
-<tr><th>Total</th><th class="num">4</th><th class="num">0</th><th class="num">0</th><th class="num">0</th><th class="num">56,996</th><th colspan="2"></th></tr>
+<tr><th colspan="8">Master Suite</th></tr>
+<tr><td><a href="#t0">Test</a></td><td class="num">4</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">105,007</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">linux-chrome &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">testCases.TC0001_Acc_RegistrationTest</td><td><a href="#m0">verify_Account_Registration</a></td><td rowspan="1">1771004978787</td><td rowspan="1">4471</td></tr><tr class="passedodd"><td rowspan="1">testCases.TC0002_LoginTest</td><td><a href="#m1">verify_Login</a></td><td rowspan="1">1771004989463</td><td rowspan="1">3332</td></tr></tbody>
-<tbody id="t1"><tr><th colspan="4">linux-edge &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">testCases.TC0001_Acc_RegistrationTest</td><td><a href="#m2">verify_Account_Registration</a></td><td rowspan="1">1771005004576</td><td rowspan="1">7394</td></tr><tr class="passedodd"><td rowspan="1">testCases.TC0002_LoginTest</td><td><a href="#m3">verify_Login</a></td><td rowspan="1">1771005027088</td><td rowspan="1">2986</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Master Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">testCases.TC0003_LoginDDT</td><td><a href="#m0">verify_LoginDTT</a></td><td rowspan="1">1771751944489</td><td rowspan="1">6993</td></tr><tr><th colspan="4">Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="4">testCases.TC0003_LoginDDT</td><td><a href="#m1">verify_LoginDTT</a></td><td rowspan="4">1771751932500</td><td rowspan="4">11983</td></tr><tr class="passedeven"><td><a href="#m2">verify_LoginDTT</a></td></tr><tr class="passedeven"><td><a href="#m3">verify_LoginDTT</a></td></tr><tr class="passedeven"><td><a href="#m4">verify_LoginDTT</a></td></tr></tbody>
 </table>
-<h2>linux-chrome</h2><h3 id="m0">testCases.TC0001_Acc_RegistrationTest#verify_Account_Registration</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testCases.TC0002_LoginTest#verify_Login</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h2>linux-edge</h2><h3 id="m2">testCases.TC0001_Acc_RegistrationTest#verify_Account_Registration</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m3">testCases.TC0002_LoginTest#verify_Login</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Test</h2><h3 id="m0">testCases.TC0003_LoginDDT#verify_LoginDTT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>laksh@yahoo.com</td><td>Lakshmi</td><td>Invalid</td></tr><tr><th colspan="3">Exception</th></tr><tr><td colspan="3"><div class="stacktrace">java.lang.AssertionError: expected [true] but found [false]
+	at testCases.TC0003_LoginDDT.verify_LoginDTT(TC0003_LoginDDT.java:70)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 29 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testCases.TC0003_LoginDDT#verify_LoginDTT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>lakshmi@yahoo.com</td><td>Lakshmi</td><td>Invalid</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testCases.TC0003_LoginDDT#verify_LoginDTT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>shake1shack1test@gmail.com</td><td>Test@123</td><td>Valid</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">testCases.TC0003_LoginDDT#verify_LoginDTT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>lax@yahoo.com</td><td>xyz</td><td>Invalid</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">testCases.TC0003_LoginDDT#verify_LoginDTT</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>abc123@gmail.com</td><td>test@123</td><td>Valid</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

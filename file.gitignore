@@ -1,0 +1,27 @@
+# Maven
+target/
+
+# TestNG
+test-output/
+
+# Surefire
+surefire-reports/
+
+# Reports
+reports/
+
+# Logs
+logs/
+
+# Screenshots
+screenshots/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+
+# OS
+.DS_Store
+Thumbs.db

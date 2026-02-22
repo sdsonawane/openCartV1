@@ -2,35 +2,36 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
-public class MyAccountPage extends BasePage{
+public class MyAccountPage extends BasePage {
 
 	public MyAccountPage(WebDriver driver) {
-		super (driver);
+		super(driver);
 	}
-	
-	@FindBy(xpath="//h2[text()='My Account']") // MyAccount page Heading
+
+	@FindBy(xpath = "//h2[text()='My Account']") // MyAccount page Heading
+	@CacheLookup
 	WebElement msgHeading;
-	
-	@FindBy(xpath="//div[@class='list-group']//a[text()='Logout']")
+
+	@FindBy(xpath = "//div[@class='list-group']//a[text()='Logout']")
+	@CacheLookup
 	WebElement linkLogout;
-	
+
 	public boolean isMyAccountPageExists() {
-		
+
 		try {
-		return msgHeading.isDisplayed();
-		
-		}
-		catch(Exception e) {
-			return false; 
+			return msgHeading.isDisplayed();
+
+		} catch (Exception e) {
+			return false;
 		}
 	}
-	
+
 	public void clickLogout() {
-		
+
 		linkLogout.click();
 	}
-	
-	
+
 }
